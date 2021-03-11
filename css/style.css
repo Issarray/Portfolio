@@ -16,6 +16,13 @@ VERSION:	Versoin Number
   font-display: swap;
 }
 
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
 body {
   line-height: 1.2;
   font-family: "Roboto", sans-serif;
