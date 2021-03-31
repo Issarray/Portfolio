@@ -352,12 +352,12 @@
 
       <div class="row shuffle-wrapper">
 
-      <div class="col-md-6 shuffle-item offset-3">
+      <!-- <div class="col-md-6 shuffle-item offset-3">
         <div class="position-relative rounded hover-wrapper">
           <img src="images\Coming-soon-ph.jpg" alt="portfolio-image" class="img-fluid rounded w-100">
           <div class="hover-overlay"></div>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
         <article class="card shadow">
           <img class="rounded card-img-top" src="images/blog/post-3.jpg" alt="post-thumb">
@@ -395,6 +395,67 @@
   </div>
 </section>
 <!-- /blog -->
+
+<div class="row">
+  <div class="col">
+      <div class="card" id="blog1">
+          <div class="card-img">
+              <a>
+                  <img class="card-img">
+              </a>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a></a></h3>
+            <p class="card-text"></p>
+          </div>
+          <div class="card-footer">
+            <div>
+                <span></span>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="col">
+      <div class="card" id="blog2">
+          <div class="card-img">
+              <a>
+                  <img class="card-img">
+              </a>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a></a></h3>
+            <p class="card-text"></p>
+          </div>
+          <div class="card-footer">
+            <div>
+                <span></span>
+            </div>
+          </div>
+        </div>
+
+  </div>
+  <div class="col">
+      <div class="card" id="blog3">
+          <div class="card-img">
+              <a>
+                  <img class="card-img">
+              </a>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a></a></h3>
+            <p class="card-text"></p>
+          </div>
+          <div class="card-footer">
+            <div>
+                <span></span>
+            </div>
+          </div>
+        </div>
+
+  </div>
+</div>
+
+
 
 <!-- contact -->
 <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
@@ -471,6 +532,41 @@
 
 <!-- Main Script -->
 <script src="js/script.js"></script>
+
+
+
+<script>
+fetch('https://latestorionblog2.herokuapp.com/GetTopXPosts/3')
+.then(response => response.json())
+.then(function(data){    
+  let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };    
+  let blogUrl = "https://latestorionblog2.herokuapp.com/TheDetails/URLFriendly/"
+  let blogAnchor = $("#blog1 > div.card-body > h3 > a");    
+  let blogLink = `${blogUrl}${data[0].slug}`;
+  blogAnchor.text(data[0].title);
+  blogAnchor.attr("href", blogLink);
+  $("#blog1 > div.card-img > a").attr("href", blogLink)
+  $("#blog1 > div.card-img > a > img").attr("src", `data:${data[0].contentType};base64,${data[0].imageData}`)    
+  $("#blog1 > div.card-body > p").text(data[0].abstract);      
+  $("#blog1 > div.card-footer > div > span").text(`Created: ${new Date(data[0].created).toLocaleDateString("en-US", options)}`)
+  blogAnchor = $("#blog2 > div.card-body > h3 > a");    
+  blogLink = `${blogUrl}${data[1].slug}`;
+  blogAnchor.text(data[1].title);
+  blogAnchor.attr("href", blogLink);
+  $("#blog2 > div.card-img > a").attr("href", blogLink)
+  $("#blog2 > div.card-img > a > img").attr("src", `data:${data[1].contentType};base64,${data[1].imageData}`)    
+  $("#blog2 > div.card-body > p").text(data[1].abstract);      
+  $("#blog2 > div.card-footer > div > span").text(`Created: ${new Date(data[1].created).toLocaleDateString("en-US", options)}`)
+  blogAnchor = $("#blog3 > div.card-body > h3 > a");    
+  blogLink = `${blogUrl}${data[2].slug}`;
+  blogAnchor.text(data[2].title);
+  blogAnchor.attr("href", blogLink);
+  $("#blog3 > div.card-img > a").attr("href", blogLink)
+  $("#blog3 > div.card-img > a > img").attr("src", `data:${data[2].contentType};base64,${data[2].imageData}`)    
+  $("#blog3 > div.card-body > p").text(data[2].abstract);      
+  $("#blog3 > div.card-footer > div > span").text(`Created: ${new Date(data[2].created).toLocaleDateString("en-US", options)}`)
+});
+</script>
 
 
 
