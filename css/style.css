@@ -334,7 +334,7 @@ a:hover {
 }
 
 .font-secondary {
-  font-family: "Playfair Display", serif !important;
+  font-family: sans-serif;
 }
 
 .font-tertiary {
