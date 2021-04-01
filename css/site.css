@@ -2,3 +2,9 @@
     max-width: 225px;
 
 }
+
+    body {
+      overflow-x: hidden !important;
+      
+  }
+  

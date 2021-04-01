@@ -20,6 +20,8 @@
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/site.css"  rel="stylesheet">
+  
+
   <!--Favicon-->
   <link rel="shortcut icon" href="images\portfolio-favicon3.png" type="image/x-icon">
   <link rel="icon" href="images\portfolio-favicon3.png" type="image/x-icon">
@@ -267,7 +269,7 @@
     <h2 class="section-title"><a id="the_blogs_section"><u>Blogs</u></a></h2>
   </div>
 
-  <!-- <div class="row">
+  <div class="row">
     <div class="col">
         <div class="card" id="blog1">
             <div class="card-img">
@@ -324,14 +326,14 @@
           </div>
 
     </div>
-</div> -->
+</div>
 
-  <div class="col-md-6 shuffle-item offset-3">
+  <!-- <div class="col-md-6 shuffle-item offset-3">
     <div class="position-relative rounded">
       <img src="images\Coming-soon-ph.jpg" alt="portfolio-image" class="img-fluid rounded w-100">
       <div class="hover-overlay"></div>
     </div>
-  </div>
+  </div> -->
   <!-- <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
     <article class="card shadow">
       <img class="rounded card-img-top" src="images/blog/post-3.jpg" alt="post-thumb">
@@ -455,7 +457,7 @@ fetch('https://latestorionblog2.herokuapp.com/GetTopXPosts/3')
 .then(response => response.json())
 .then(function(data){    
   let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };    
-  let blogUrl = "https://latestorionblog2.herokuapp.com/TheDetails/URLFriendly/"
+  let blogUrl = "https://latestorionblog2.herokuapp.com/BlogPost/TheDetails/"
   let blogAnchor = $("#blog1 > div.card-body > h3 > a");    
   let blogLink = `${blogUrl}${data[0].slug}`;
   blogAnchor.text(data[0].title);
